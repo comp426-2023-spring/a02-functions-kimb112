@@ -14,7 +14,7 @@
     "galosh.js": "./cli.js"
   },
   "author": "@kimb112",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/comp426-2023-spring/a02-functions-kimb112/issues"
   },
