@@ -4,8 +4,6 @@ import minimist from "minimist";
 import moment from "moment-timezone";
 import fetch from "node-fetch";
 
-const minimist = require('minimist')
-
 const args = minimist(process.argv.slice(2));
 
 //if item at command line is -h
@@ -60,4 +58,8 @@ if (days == 0) {
   console.log("tomorrow.")
 }
 
+//write data
+if (args.j) {
+    console.log(data);
+}
 process.exit(0);
