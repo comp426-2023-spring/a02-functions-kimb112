@@ -44,6 +44,9 @@ if (args.z) {
     timezone = timezone_guess;
 }
 
+lon = Math.round(lon);
+lat = Math.round(lat);
+
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&timezone=' + timezone);
 
 const data = await response.json();
