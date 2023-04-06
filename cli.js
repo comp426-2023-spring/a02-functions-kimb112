@@ -59,3 +59,5 @@ if (days == 0) {
 } else {
   console.log("tomorrow.")
 }
+
+process.exit(0);
