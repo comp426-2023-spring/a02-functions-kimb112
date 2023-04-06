@@ -46,3 +46,16 @@ if (args.z) {
     timezone = timezone_guess;
 }
 
+const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&timezone=' + timezone);
+
+const data = await response.json();
+
+const days = args.d 
+
+if (days == 0) {
+  console.log("today.")
+} else if (days > 1) {
+  console.log("in " + days + " days.")
+} else {
+  console.log("tomorrow.")
+}
