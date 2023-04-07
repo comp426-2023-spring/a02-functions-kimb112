@@ -18,36 +18,34 @@ if (args.h) {
   process.exit(0); 
 }
 
-const timezone_guess = moment.tz.guess();
+const timezone = moment.tz.guess();
 
 let latitude;
 let longitude;
-let timezone;
+let timezone_l;
 
 if (args.n && args.n > 0) {
     latitude = args.n;
-}
-if (args.s && args.s > 0) {
+} else if (args.s && args.s > 0) {
     latitude = -args.s;
 }
 
 if (args.e && args.e > 0) {
     longitude = args.e;
-}
-if (args.w && args.w > 0) {
+} else if (args.w && args.w > 0) {
     longitude = -args.w;
 }
 
 if (args.z) {
-    timezone = args.z;
+    timezone_l = args.z;
 } else {
-    timezone = timezone_guess;
+    timezone_l = timezone;
 }
 
 lon = Math.round(lon);
 lat = Math.round(lat);
 
-const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&timezone=' + timezone);
+const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&timezone=' + timezone_l);
 
 const data = await response.json();
 
@@ -64,5 +62,5 @@ if (days == 0) {
 //write data
 if (args.j) {
     console.log(data);
+    process.exit(0);
 }
-process.exit(0);
