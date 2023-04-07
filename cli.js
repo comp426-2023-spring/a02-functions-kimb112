@@ -48,8 +48,8 @@ if (args.z) {
     timezone_l = timezone;
 }
 
-lon = Math.round(lon);
-lat = Math.round(lat);
+longitude = Math.round(longitude);
+latitude = Math.round(latitude);
 
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&timezone=' + timezone_l);
 
