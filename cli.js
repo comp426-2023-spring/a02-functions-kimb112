@@ -24,16 +24,22 @@ let latitude;
 let longitude;
 let timezone_l;
 
-if (args.n && args.n > 0) {
+if (args.n) {
     latitude = args.n;
-} else if (args.s && args.s > 0) {
+} else if (args.s) {
     latitude = -args.s;
+} else {
+  console.log("Latitude not in range");
+  process.exit(0);
 }
 
-if (args.e && args.e > 0) {
+if (args.e) {
     longitude = args.e;
-} else if (args.w && args.w > 0) {
+} else if (args.w ) {
     longitude = -args.w;
+} else {
+  console.log("Longitude not in range");
+  process.exit(0);
 }
 
 if (args.z) {
